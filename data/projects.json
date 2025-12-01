@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Modern E-commerce Frontend",
+    "stack": ["HTML5", "CSS3", "Bootstrap 5"],
+    "description": "A fully responsive, multi-page e-commerce website interface built purely with standard markup and styling. Focus on modern UI/UX and cross-browser compatibility.",
+    "image": "/images/project-ecommerce.jpg",
+    "link": "#",
+    "status": "Completed"
+  },
+  {
+    "id": 2,
+    "title": "Targeted Digital Marketing Campaign",
+    "stack": ["SEO", "SMM (Meta/X)", "Content Strategy"],
+    "description": "A comprehensive plan outlining an SEO and Social Media Marketing strategy. Includes keyword research, competitor analysis, and content calendar development.",
+    "image": "/images/project-dm-campaign.jpg",
+    "link": "#",
+    "status": "Completed"
+  },
+  {
+    "id": 3,
+    "title": "React + Tailwind Portfolio (WIP)",
+    "stack": ["Next.js", "React", "TailwindCSS", "Framer Motion"],
+    "description": "The very portfolio you are viewing (or a similar project), leveraging modern tools to create a highly animated and performant single-page application.",
+    "image": "/images/project-dm-campaign.jpg",
+    "link": "#",
+    "status": "In Progress"
+  }
+]

@@ -1,0 +1,206 @@
+/* --------------------------------------------
+    1. TAILWIND DIRECTIVES
+--------------------------------------------- */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --------------------------------------------
+    2. GOOGLE FONTS IMPORTS
+--------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Inter:wght@400;600;700;900&display=swap');
+
+/* --------------------------------------------
+    3. BASE GLOBAL STYLES
+--------------------------------------------- */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply bg-background-dark text-gray-200 font-sans leading-relaxed;
+    background-image:
+      radial-gradient(circle at 10% 20%, rgba(0, 246, 255, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 90% 80%, rgba(124, 92, 255, 0.10) 0%, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4 {
+    @apply tracking-tight font-bold;
+  }
+
+  a {
+    @apply transition-all duration-300 hover:opacity-90;
+  }
+}
+
+/* --------------------------------------------
+    4. CUSTOM SCROLLBAR (Premium Dark UI)
+--------------------------------------------- */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050814;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 246, 255, 0.3);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 246, 255, 0.6);
+}
+
+/* --------------------------------------------
+    5. GLASSMORPHISM UTILITY CLASSES
+--------------------------------------------- */
+
+@layer utilities {
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    @apply rounded-2xl shadow-xl;
+  }
+
+  .glassmorphism-light {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(12px);
+    @apply rounded-xl;
+  }
+
+  .neon-border {
+    box-shadow:
+      0 0 10px rgba(0, 246, 255, 0.5),
+      0 0 20px rgba(0, 246, 255, 0.3),
+      0 0 30px rgba(0, 246, 255, 0.2);
+  }
+}
+
+/* --------------------------------------------
+    6. NEON TEXT GLOW EFFECTS (Ultra Smooth)
+--------------------------------------------- */
+
+.text-neon-cyan {
+  text-shadow:
+    0 0 10px #00f6ff,
+    0 0 20px #00f6ff,
+    0 0 30px #00f6ff,
+    0 0 50px rgba(0, 246, 255, 0.7);
+}
+
+.text-neon-purple {
+  text-shadow:
+    0 0 10px #a37cff,
+    0 0 20px #a37cff,
+    0 0 30px #a37cff,
+    0 0 50px rgba(163, 124, 255, 0.7);
+}
+
+/* --------------------------------------------
+    7. ANIMATED GLOW (Keyframes)
+--------------------------------------------- */
+
+@keyframes softGlow {
+  0% { filter: drop-shadow(0 0 4px #00f6ff); }
+  50% { filter: drop-shadow(0 0 12px #00f6ff); }
+  100% { filter: drop-shadow(0 0 4px #00f6ff); }
+}
+
+.animate-soft-glow {
+  animation: softGlow 3s ease-in-out infinite;
+}
+
+/* --------------------------------------------
+    8. SECTION TITLES (Neon Fade)
+--------------------------------------------- */
+
+.section-title {
+  @apply text-4xl md:text-5xl font-extrabold text-center mb-10;
+  text-shadow:
+    0 0 14px rgba(124, 92, 255, 0.7),
+    0 0 30px rgba(124, 92, 255, 0.5);
+}
+
+/* --------------------------------------------
+    9. BUTTON STYLES (Neon)
+--------------------------------------------- */
+
+.btn-primary {
+  @apply px-6 py-3 font-semibold rounded-xl transition-all;
+  background: linear-gradient(90deg, #00f6ff, #7c5cff);
+  color: #0a0f1f;
+  box-shadow:
+    0 0 10px rgba(0, 246, 255, 0.5),
+    0 0 16px rgba(124, 92, 255, 0.5);
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 14px rgba(0, 246, 255, 0.7),
+    0 0 22px rgba(124, 92, 255, 0.7);
+}
+
+.btn-outline {
+  @apply px-6 py-3 font-semibold rounded-xl border border-cyan-400 text-cyan-300;
+  transition: 0.3s;
+}
+
+.btn-outline:hover {
+  background: rgba(0, 246, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* --------------------------------------------
+    10. SKILL BAR ANIMATIONS
+--------------------------------------------- */
+
+.skill-bar {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #00f6ff, #7c5cff);
+  border-radius: 999px;
+  animation: loadBar 2s ease-out forwards;
+}
+
+@keyframes loadBar {
+  from { width: 0%; }
+  to { width: var(--progress); }
+}
+
+/* --------------------------------------------
+    11. ANIMATED IMAGE RING (About Me)
+--------------------------------------------- */
+
+.image-ring {
+  border-radius: 9999px;
+  border: 4px solid #00f6ff;
+  box-shadow:
+    0 0 10px #00f6ff,
+    0 0 30px rgba(0, 246, 255, 0.6);
+  animation: ringPulse 4s infinite ease-in-out;
+}
+
+@keyframes ringPulse {
+  0% { box-shadow: 0 0 15px #00f6ff; }
+  50% { box-shadow: 0 0 35px #00f6ff; }
+  100% { box-shadow: 0 0 15px #00f6ff; }
+}

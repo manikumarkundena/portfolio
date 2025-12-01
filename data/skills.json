@@ -1,0 +1,23 @@
+[
+  { "category": "Frontend & Markup", "icon": "FaCode", "skills": [
+    { "name": "HTML/CSS", "level": 90, "color": "neon-cyan" },
+    { "name": "Bootstrap", "level": 85, "color": "neon-cyan" },
+    { "name": "Beginner JavaScript", "level": 55, "color": "neon-cyan" },
+    { "name": "Learning React", "level": 30, "color": "neon-cyan" },
+    { "name": "Learning TailwindCSS", "level": 40, "color": "neon-cyan" }
+  ]},
+  { "category": "Programming & Data", "icon": "FaTerminal", "skills": [
+    { "name": "C Programming (Arrays, Pointers)", "level": 75, "color": "neon-purple" },
+    { "name": "Python Basics", "level": 45, "color": "neon-purple" },
+    { "name": "Data Analysis (Concepts)", "level": 30, "color": "neon-purple" }
+  ]},
+  { "category": "Design & Marketing", "icon": "FaPencilAlt", "skills": [
+    { "name": "Digital Marketing & SEO Basics", "level": 60, "color": "neon-cyan" },
+    { "name": "MS Office / Google Workspace", "level": 95, "color": "neon-purple" },
+    { "name": "Canva / Basic Video Editing", "level": 70, "color": "neon-cyan" }
+  ]},
+  { "category": "Mobile & Emerging Tech", "icon": "FaMobileAlt", "skills": [
+    { "name": "Learning Android / Kotlin", "level": 35, "color": "neon-purple" },
+    { "name": "AI-Based Freelancing Concepts", "level": 30, "color": "neon-cyan" }
+  ]}
+]

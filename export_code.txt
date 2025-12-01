@@ -1,0 +1,1204 @@
+===== tailwind.config.js =====
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/app/**/*.{js,jsx,ts,tsx}",
+    "./src/components/**/*.{js,jsx,ts,tsx}",
+    "./src/app/(sections)/**/*.{js,jsx,ts,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        "background-dark": "#0a0f1f",
+      },
+      fontFamily: {
+        sans: ["Inter", "sans-serif"],
+        mono: ["Fira Code", "monospace"],
+      },
+    },
+  },
+  plugins: [],
+};
+
+===== postcss.config.js =====
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
+
+===== globals.css =====
+/* --------------------------------------------
+    1. TAILWIND DIRECTIVES
+--------------------------------------------- */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --------------------------------------------
+    2. GOOGLE FONTS IMPORTS
+--------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Inter:wght@400;600;700;900&display=swap');
+
+/* --------------------------------------------
+    3. BASE GLOBAL STYLES
+--------------------------------------------- */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply bg-background-dark text-gray-200 font-sans leading-relaxed;
+    background-image:
+      radial-gradient(circle at 10% 20%, rgba(0, 246, 255, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 90% 80%, rgba(124, 92, 255, 0.10) 0%, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4 {
+    @apply tracking-tight font-bold;
+  }
+
+  a {
+    @apply transition-all duration-300 hover:opacity-90;
+  }
+}
+
+/* --------------------------------------------
+    4. CUSTOM SCROLLBAR (Premium Dark UI)
+--------------------------------------------- */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050814;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 246, 255, 0.3);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 246, 255, 0.6);
+}
+
+/* --------------------------------------------
+    5. GLASSMORPHISM UTILITY CLASSES
+--------------------------------------------- */
+
+@layer utilities {
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    @apply rounded-2xl shadow-xl;
+  }
+
+  .glassmorphism-light {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(12px);
+    @apply rounded-xl;
+  }
+
+  .neon-border {
+    box-shadow:
+      0 0 10px rgba(0, 246, 255, 0.5),
+      0 0 20px rgba(0, 246, 255, 0.3),
+      0 0 30px rgba(0, 246, 255, 0.2);
+  }
+}
+
+/* --------------------------------------------
+    6. NEON TEXT GLOW EFFECTS (Ultra Smooth)
+--------------------------------------------- */
+
+.text-neon-cyan {
+  text-shadow:
+    0 0 10px #00f6ff,
+    0 0 20px #00f6ff,
+    0 0 30px #00f6ff,
+    0 0 50px rgba(0, 246, 255, 0.7);
+}
+
+.text-neon-purple {
+  text-shadow:
+    0 0 10px #a37cff,
+    0 0 20px #a37cff,
+    0 0 30px #a37cff,
+    0 0 50px rgba(163, 124, 255, 0.7);
+}
+
+/* --------------------------------------------
+    7. ANIMATED GLOW (Keyframes)
+--------------------------------------------- */
+
+@keyframes softGlow {
+  0% { filter: drop-shadow(0 0 4px #00f6ff); }
+  50% { filter: drop-shadow(0 0 12px #00f6ff); }
+  100% { filter: drop-shadow(0 0 4px #00f6ff); }
+}
+
+.animate-soft-glow {
+  animation: softGlow 3s ease-in-out infinite;
+}
+
+/* --------------------------------------------
+    8. SECTION TITLES (Neon Fade)
+--------------------------------------------- */
+
+.section-title {
+  @apply text-4xl md:text-5xl font-extrabold text-center mb-10;
+  text-shadow:
+    0 0 14px rgba(124, 92, 255, 0.7),
+    0 0 30px rgba(124, 92, 255, 0.5);
+}
+
+/* --------------------------------------------
+    9. BUTTON STYLES (Neon)
+--------------------------------------------- */
+
+.btn-primary {
+  @apply px-6 py-3 font-semibold rounded-xl transition-all;
+  background: linear-gradient(90deg, #00f6ff, #7c5cff);
+  color: #0a0f1f;
+  box-shadow:
+    0 0 10px rgba(0, 246, 255, 0.5),
+    0 0 16px rgba(124, 92, 255, 0.5);
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 14px rgba(0, 246, 255, 0.7),
+    0 0 22px rgba(124, 92, 255, 0.7);
+}
+
+.btn-outline {
+  @apply px-6 py-3 font-semibold rounded-xl border border-cyan-400 text-cyan-300;
+  transition: 0.3s;
+}
+
+.btn-outline:hover {
+  background: rgba(0, 246, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* --------------------------------------------
+    10. SKILL BAR ANIMATIONS
+--------------------------------------------- */
+
+.skill-bar {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #00f6ff, #7c5cff);
+  border-radius: 999px;
+  animation: loadBar 2s ease-out forwards;
+}
+
+@keyframes loadBar {
+  from { width: 0%; }
+  to { width: var(--progress); }
+}
+
+/* --------------------------------------------
+    11. ANIMATED IMAGE RING (About Me)
+--------------------------------------------- */
+
+.image-ring {
+  border-radius: 9999px;
+  border: 4px solid #00f6ff;
+  box-shadow:
+    0 0 10px #00f6ff,
+    0 0 30px rgba(0, 246, 255, 0.6);
+  animation: ringPulse 4s infinite ease-in-out;
+}
+
+@keyframes ringPulse {
+  0% { box-shadow: 0 0 15px #00f6ff; }
+  50% { box-shadow: 0 0 35px #00f6ff; }
+  100% { box-shadow: 0 0 15px #00f6ff; }
+}
+
+===== layout.js =====
+import { Inter, Fira_Code } from 'next/font/google';
+import './styles/globals.css';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import NeonGradient from './components/NeonGradient';
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+const firaCode = Fira_Code({
+  subsets: ['latin'],
+  variable: '--font-fira-code',
+  display: 'swap',
+});
+
+export const metadata = {
+  title: 'Manikumar Kundena | Full-Stack Explorer & UI/UX',
+  description: 'B.Tech student portfolio featuring Next.js, TailwindCSS, and a cinematic neon-glassmorphism design.',
+  keywords: ['Next.js', 'TailwindCSS', 'Framer Motion', 'Portfolio', 'Manikumar Kundena', 'Web Developer'],
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en" className={`${inter.variable} ${firaCode.variable}`}>
+      <body className="font-sans min-h-screen relative overflow-x-hidden">
+        {/* 9. Animated Glowing Background Layer */}
+        <NeonGradient /> 
+        
+        <div id="content-wrapper" className="relative z-10">
+          <Navbar />
+          <main className="pt-20 lg:pt-24">{children}</main>
+          <Footer />
+        </div>
+      </body>
+    </html>
+  );
+}
+===== page.js =====
+// src/app/page.js (PURE SERVER COMPONENT)
+
+import Hero from './(sections)/hero/Hero';
+import About from './(sections)/about/About';
+import Skills from './(sections)/skills/Skills';
+import Projects from './(sections)/projects/Projects';
+import Certifications from './(sections)/certifications/Certifications';
+import Contact from './(sections)/contact/Contact';
+// This component MUST be marked 'use client' and handle the motion import
+import SectionFadeIn from './components/SectionFadeIn'; 
+
+export default function Home() {
+  return (
+    <>
+      <SectionFadeIn id="hero">
+        <Hero /> 
+      </SectionFadeIn>
+      
+      <SectionFadeIn id="about">
+        <About />
+      </SectionFadeIn>
+      
+      <SectionFadeIn id="skills">
+        <Skills />
+      </SectionFadeIn>
+      
+      <SectionFadeIn id="projects">
+        <Projects />
+      </SectionFadeIn>
+      
+      <SectionFadeIn id="certifications">
+        <Certifications />
+      </SectionFadeIn>
+      
+      <SectionFadeIn id="contact">
+        <Contact />
+      </SectionFadeIn>
+    </>
+  );
+}
+===== certifications.json =====
+[
+  {
+    "title": "Introduction to Web Development",
+    "issuer": "Coursera / [University Name]",
+    "date": "Jan 2024",
+    "link": "#"
+  },
+  {
+    "title": "Google Analytics for Beginners",
+    "issuer": "Google",
+    "date": "Feb 2024",
+    "link": "#"
+  },
+  {
+    "title": "Basic Python Programming",
+    "issuer": "Udemy",
+    "date": "Mar 2024",
+    "link": "#"
+  }
+]
+===== personal.json =====
+{
+  "name": "Manikumar Kundena",
+  "title": "B.Tech Student & Web Dev Explorer",
+  "tagline": "Crafting digital experiences with practical, hands-on learning.",
+  "bio": "I'm Manikumar, an introverted and practical B.Tech student (2024–2028) at SIT, deeply exploring the intersection of web development and emerging tech. My focus areas currently include Next.js, TailwindCSS, Android/Kotlin, and data analysis. I approach every technology with a pragmatic, results-oriented mindset. Creator of the page 'Random Bharatian Dude.'",
+  "email": "manikumar.dev@example.com",
+  "phone": "+91 98765 43210",
+  "address": "Tumakuru, Karnataka, India",
+  "ctaText": "View My Full CV"
+}
+===== projects.json =====
+[
+  {
+    "id": 1,
+    "title": "Modern E-commerce Frontend",
+    "stack": ["HTML5", "CSS3", "Bootstrap 5"],
+    "description": "A fully responsive, multi-page e-commerce website interface built purely with standard markup and styling. Focus on modern UI/UX and cross-browser compatibility.",
+    "image": "/images/project-ecommerce.jpg",
+    "link": "#",
+    "status": "Completed"
+  },
+  {
+    "id": 2,
+    "title": "Targeted Digital Marketing Campaign",
+    "stack": ["SEO", "SMM (Meta/X)", "Content Strategy"],
+    "description": "A comprehensive plan outlining an SEO and Social Media Marketing strategy. Includes keyword research, competitor analysis, and content calendar development.",
+    "image": "/images/project-dm-campaign.jpg",
+    "link": "#",
+    "status": "Completed"
+  },
+  {
+    "id": 3,
+    "title": "React + Tailwind Portfolio (WIP)",
+    "stack": ["Next.js", "React", "TailwindCSS", "Framer Motion"],
+    "description": "The very portfolio you are viewing (or a similar project), leveraging modern tools to create a highly animated and performant single-page application.",
+    "image": "/images/project-dm-campaign.jpg",
+    "link": "#",
+    "status": "In Progress"
+  }
+]
+===== skills.json =====
+[
+  { "category": "Frontend & Markup", "icon": "FaCode", "skills": [
+    { "name": "HTML/CSS", "level": 90, "color": "neon-cyan" },
+    { "name": "Bootstrap", "level": 85, "color": "neon-cyan" },
+    { "name": "Beginner JavaScript", "level": 55, "color": "neon-cyan" },
+    { "name": "Learning React", "level": 30, "color": "neon-cyan" },
+    { "name": "Learning TailwindCSS", "level": 40, "color": "neon-cyan" }
+  ]},
+  { "category": "Programming & Data", "icon": "FaTerminal", "skills": [
+    { "name": "C Programming (Arrays, Pointers)", "level": 75, "color": "neon-purple" },
+    { "name": "Python Basics", "level": 45, "color": "neon-purple" },
+    { "name": "Data Analysis (Concepts)", "level": 30, "color": "neon-purple" }
+  ]},
+  { "category": "Design & Marketing", "icon": "FaPencilAlt", "skills": [
+    { "name": "Digital Marketing & SEO Basics", "level": 60, "color": "neon-cyan" },
+    { "name": "MS Office / Google Workspace", "level": 95, "color": "neon-purple" },
+    { "name": "Canva / Basic Video Editing", "level": 70, "color": "neon-cyan" }
+  ]},
+  { "category": "Mobile & Emerging Tech", "icon": "FaMobileAlt", "skills": [
+    { "name": "Learning Android / Kotlin", "level": 35, "color": "neon-purple" },
+    { "name": "AI-Based Freelancing Concepts", "level": 30, "color": "neon-cyan" }
+  ]}
+]
+===== socials.json =====
+[
+  { "name": "GitHub", "url": "#", "icon": "FaGithub" },
+  { "name": "LinkedIn", "url": "#", "icon": "FaLinkedinIn" },
+  { "name": "X (Twitter)", "url": "#", "icon": "FaTwitter" },
+  { "name": "Email", "url": "mailto:manikumar.dev@example.com", "icon": "FaEnvelope" }
+]
+===== About.jsx =====
+import React from 'react';
+import GlassCard from '../../components/GlassCard';
+import { getPersonalData } from '../../lib/data';
+import Image from 'next/image';
+// Import the wrapper components
+import { MotionDiv, MotionP } from '../../components/MotionWrappers'; 
+
+const About = async () => {
+  const data = await getPersonalData();
+
+  const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.2 } },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
+  return (
+    <MotionDiv // Line 25: Opening tag for the whole section
+      initial="hidden"
+      whileInView="visible"
+      variants={containerVariants}
+      viewport={{ once: true, amount: 0.3 }}
+    >
+      <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-12 text-neon-purple text-neon-glow-purple">
+        About Me
+      </h2>
+      
+      <GlassCard className="p-8 lg:p-12 max-w-5xl mx-auto flex flex-col lg:flex-row gap-8"> {/* Line 35: Opening tag for GlassCard */}
+        
+        {/* Headshot Section */}
+        <MotionDiv // Line 37: Opening tag for headshot animation
+          variants={itemVariants} 
+          className="lg:w-1/3 flex justify-center"
+        >
+          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-neon-cyan shadow-neon-cyan/70">
+            <Image
+              src="/images/clean-headshot.jpg"
+              alt="Manikumar Kundena Headshot"
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              style={{ objectFit: 'cover' }}
+              className="object-cover"
+            />
+          </div>
+        </MotionDiv> {/* Line 55: Closing tag for headshot animation (MotionDiv) */}
+        
+        {/* Bio Content */}
+        <MotionDiv variants={itemVariants} className="lg:w-2/3"> {/* Line 57: Opening tag for bio content animation (MotionDiv) */}
+          <h3 className="text-3xl font-bold mb-4 text-neon-cyan font-mono">
+            {data.name}
+          </h3>
+          <p className="text-xl font-medium mb-6 text-gray-300 border-l-4 border-neon-purple pl-4">
+            {data.title}
+          </p>
+          
+          <MotionP variants={itemVariants} className="mb-4 text-gray-200 leading-relaxed">
+            {data.bio}
+          </MotionP>
+          
+          <MotionDiv variants={itemVariants} className="mt-6 pt-4 border-t border-gray-700/50">
+            <h4 className="text-lg font-semibold mb-2 text-neon-purple">Key Details</h4>
+            <ul className="list-disc list-inside text-gray-300 grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <li>**Status:** B.Tech Student (2024–2028)</li>
+              <li>**Location:** Tumakuru, Karnataka, India</li>
+              <li>**Focus:** Web Development (Next.js), Android/Kotlin</li>
+              <li>**Mindset:** Introvert & Practical Learner</li>
+            </ul>
+          </MotionDiv>
+        </MotionDiv> {/* Line 78: Closing tag for bio content animation (MotionDiv) */}
+        
+      </GlassCard> {/* Line 80: Closing tag for GlassCard */}
+    </MotionDiv> /* Line 81: Closing tag for the whole section (MotionDiv) */
+  );
+};
+
+export default About;
+===== Certifications.jsx =====
+import React from 'react';
+import GlassCard from '../../components/GlassCard';
+import { getCertificationsData } from '../../lib/data';
+import { FaCertificate } from 'react-icons/fa';
+// REMOVED: import { motion } from 'framer-motion';
+// NEW: Import the wrapper components
+import { MotionUl, MotionLi } from '../../components/MotionWrappers'; 
+
+const Certifications = async () => { // Async function = Server Component
+  const certifications = await getCertificationsData();
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+  };
+
+  return (
+    <div className="max-w-4xl mx-auto">
+      <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-12 text-neon-cyan text-neon-glow-cyan">
+        Certifications
+      </h2>
+
+      <GlassCard className="p-8">
+        <MotionUl // <-- SUBSTITUTED <motion.ul>
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="space-y-6"
+        >
+          {certifications.map((cert, index) => (
+            <MotionLi // <-- SUBSTITUTED <motion.li>
+              key={index} 
+              variants={itemVariants}
+              className="flex items-start border-b border-gray-700/50 pb-4 last:border-b-0 last:pb-0"
+            >
+              <FaCertificate className="text-neon-purple text-2xl mr-4 mt-1 flex-shrink-0 shadow-neon-purple" />
+              <div>
+                <a 
+                  href={cert.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-xl font-semibold text-white hover:text-neon-cyan transition duration-300"
+                >
+                  {cert.title}
+                </a>
+                <p className="text-gray-400">
+                  <span className="font-mono">{cert.issuer}</span> &bull; {cert.date}
+                </p>
+              </div>
+            </MotionLi>
+          ))}
+        </MotionUl>
+      </GlassCard>
+    </div>
+  );
+};
+
+export default Certifications;
+===== Contact.jsx =====
+import React from 'react';
+import GlassCard from '../../components/GlassCard';
+import { getPersonalData, getSocialsData } from '../../lib/data';
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaGithub, FaLinkedinIn, FaTwitter, FaArrowRight } from 'react-icons/fa';
+// REMOVED: import { motion } from 'framer-motion'; 
+// NEW: Import the motion wrapper from the client file
+import { MotionDiv } from '../../components/MotionWrappers'; 
+
+const iconMap = {
+  FaGithub,
+  FaLinkedinIn,
+  FaTwitter,
+  FaEnvelope,
+};
+
+const Contact = async () => {
+  const personal = await getPersonalData();
+  const socials = await getSocialsData();
+
+  const formVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.7 } },
+  };
+
+  const infoVariants = {
+    hidden: { opacity: 0, x: 20 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.7, delay: 0.2 } },
+  };
+
+  return (
+    <div className="max-w-6xl mx-auto">
+      <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-12 text-neon-purple text-neon-glow-purple">
+        Get In Touch
+      </h2>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        {/* Contact Info (Column 1/3) */}
+        <MotionDiv // <-- SUBSTITUTED <motion.div>
+          variants={infoVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          className="lg:col-span-1 space-y-6"
+        >
+          <GlassCard className="p-6">
+            <h3 className="text-2xl font-bold mb-4 text-neon-cyan">Contact Info</h3>
+            
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <FaEnvelope className="text-neon-purple text-xl flex-shrink-0" />
+                <div>
+                  <p className="text-sm text-gray-400">Email Address</p>
+                  <a href={`mailto:${personal.email}`} className="text-white hover:text-neon-cyan transition">{personal.email}</a>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <FaPhone className="text-neon-purple text-xl flex-shrink-0" />
+                <div>
+                  <p className="text-sm text-gray-400">Phone</p>
+                  <p className="text-white">{personal.phone}</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <FaMapMarkerAlt className="text-neon-purple text-xl flex-shrink-0" />
+                <div>
+                  <p className="text-sm text-gray-400">Location</p>
+                  <p className="text-white">{personal.address}</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Socials */}
+            <div className="mt-8 pt-4 border-t border-gray-700/50">
+              <h4 className="text-lg font-semibold mb-3 text-neon-cyan">Connect</h4>
+              <div className="flex space-x-4">
+                {socials.map((social) => {
+                  const Icon = iconMap[social.icon];
+                  return (
+                    <a 
+                      key={social.name}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-2xl text-gray-300 hover:text-neon-purple transition duration-300 hover:scale-110"
+                    >
+                      <Icon />
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          </GlassCard>
+        </MotionDiv>
+
+        {/* Mailto Form (Column 2/3) */}
+        <MotionDiv // <-- SUBSTITUTED <motion.div>
+          variants={formVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          className="lg:col-span-2"
+        >
+          <GlassCard className="p-8">
+            <h3 className="text-2xl font-bold mb-6 text-neon-purple">Send a Quick Message</h3>
+            
+            <form action={`mailto:${personal.email}`} method="post" encType="text/plain" className="space-y-4">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium mb-1 text-gray-300">Your Name</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="Name"
+                  required
+                  className="w-full px-4 py-2 bg-gray-900/50 border border-gray-700 rounded-lg focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan transition duration-300"
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium mb-1 text-gray-300">Your Email</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="Email"
+                  required
+                  className="w-full px-4 py-2 bg-gray-900/50 border border-gray-700 rounded-lg focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan transition duration-300"
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium mb-1 text-gray-300">Message</label>
+                <textarea 
+                  id="message" 
+                  name="Body"
+                  rows="5" 
+                  required
+                  className="w-full px-4 py-2 bg-gray-900/50 border border-gray-700 rounded-lg focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan transition duration-300"
+                ></textarea>
+              </div>
+              
+              <button
+                type="submit"
+                className="w-full px-6 py-3 bg-neon-cyan hover:bg-opacity-80 text-background-dark font-bold rounded-xl transition duration-300 shadow-neon-cyan flex items-center justify-center gap-2"
+              >
+                Send Mail <FaArrowRight />
+              </button>
+            </form>
+          </GlassCard>
+        </MotionDiv>
+      </div>
+    </div>
+  );
+};
+
+export default Contact;
+===== Hero.jsx =====
+import React from 'react';
+// REMOVED: import { motion } from 'framer-motion'; 
+
+import { FaDownload, FaArrowRight } from 'react-icons/fa';
+import AnimatedText from '../../components/AnimatedText';
+import GlassCard from '../../components/GlassCard';
+import { getPersonalData } from '../../lib/data';
+import Image from 'next/image';
+// NEW: Import the motion wrappers from a client file
+import { MotionDiv, MotionP, MotionH1 } from '../../components/MotionWrappers'; 
+
+const Hero = async () => {
+  // This function is async (Server Component)
+  const data = await getPersonalData();
+
+  return (
+    <div className="relative pt-10 pb-20 md:pt-20 md:pb-32 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 lg:px-8 flex flex-col lg:flex-row items-center justify-between">
+        
+        {/* Text Content */}
+        <div className="lg:w-3/5 z-10 text-center lg:text-left">
+          
+          <MotionP // Replaced <motion.p>
+            initial={{ opacity: 0, y: 10 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-lg md:text-xl text-gray-400 mb-3 font-mono"
+          >
+            Hello, I&apos;m
+          </MotionP>
+          
+          {/* Big Neon Name */}
+          <MotionH1 // Replaced <motion.h1>
+            initial={{ opacity: 0, scale: 0.9 }} 
+            animate={{ opacity: 1, scale: 1 }} 
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-black mb-4 text-white uppercase tracking-tighter"
+          >
+            <span className="text-neon-cyan text-neon-glow-cyan">Manikumar</span>{' '}
+            <span className="text-neon-purple text-neon-glow-purple">Kundena</span>
+          </MotionH1>
+          
+          {/* Animated Hero Text (AnimatedText component is already 'use client') */}
+          <div className="text-2xl md:text-4xl font-bold mb-8 text-gray-200 h-10 md:h-12 overflow-hidden">
+            <AnimatedText text={data.title} className="inline-block" />
+          </div>
+
+          <MotionP // Replaced <motion.p>
+            initial={{ opacity: 0, x: -20 }} 
+            animate={{ opacity: 1, x: 0 }} 
+            transition={{ duration: 0.5, delay: 1.5 }}
+            className="max-w-xl text-gray-300 mb-10 text-lg"
+          >
+            {data.tagline}
+          </MotionP>
+
+          {/* CTAs */}
+          <MotionDiv // Replaced <motion.div>
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.5, delay: 1.8 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+          >
+            <a 
+              href="#contact" 
+              className="px-8 py-3 bg-neon-purple hover:bg-opacity-80 text-white font-semibold rounded-xl transition duration-300 shadow-neon-purple flex items-center justify-center gap-2 border border-transparent hover:border-white/50"
+            >
+              Get In Touch <FaArrowRight />
+            </a>
+            <a 
+              href="/Manikumar-CV.pdf" // Placeholder CV path
+              download
+              className="px-8 py-3 glassmorphism text-neon-cyan font-semibold rounded-xl transition duration-300 hover:bg-white/10 flex items-center justify-center gap-2 border border-neon-cyan/50"
+            >
+              Download CV <FaDownload />
+            </a>
+          </MotionDiv>
+        </div>
+
+        {/* Podium Photo / Glass Card Image */}
+        <MotionDiv // Replaced <motion.div>
+            initial={{ opacity: 0, scale: 0.8, rotate: -10 }} 
+            animate={{ opacity: 1, scale: 1, rotate: 0 }} 
+            transition={{ duration: 0.8, delay: 1.2, type: 'spring' }}
+            className="lg:w-2/5 mt-12 lg:mt-0"
+        >
+            <GlassCard className="p-4 relative max-w-sm mx-auto shadow-neon-cyan/50">
+                <Image 
+                    src="/images/podium-photo.jpg" 
+                    alt="Manikumar Kundena - Podium/Host Style Photo"
+                    width={500}
+                    height={500}
+                    className="rounded-lg shadow-2xl object-cover w-full h-auto"
+                />
+            </GlassCard>
+        </MotionDiv>
+      </div>
+    </div>
+  );
+};
+
+export default Hero;
+===== Projects.jsx =====
+import React from 'react';
+import HoverGlowCard from '../../components/HoverGlowCard';
+import { getProjectsData } from '../../lib/data';
+// REMOVED: import { motion } from 'framer-motion'; 
+// NEW: Import the motion wrapper from the client file
+import { MotionDiv } from '../../components/MotionWrappers'; 
+
+const Projects = async () => { // Async function = Server Component
+  const projects = await getProjectsData();
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  return (
+    <div className="max-w-7xl mx-auto">
+      <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-12 text-neon-purple text-neon-glow-purple">
+        Real Projects
+      </h2>
+
+      <MotionDiv // Outer container (Line 31)
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+      >
+        {projects.map((project) => (
+          // Inner element for each project card (Line 39)
+          <MotionDiv 
+            key={project.id} 
+            variants={{ hidden: { scale: 0.9, opacity: 0 }, visible: { scale: 1, opacity: 1 } }}
+          >
+            <HoverGlowCard project={project} />
+          </MotionDiv>
+        ))}
+      </MotionDiv>
+    </div>
+  );
+};
+
+export default Projects;
+===== Skills.jsx =====
+import React from 'react';
+import GlassCard from '../../components/GlassCard';
+import SkillBar from '../../components/SkillBar';
+import { getSkillsData } from '../../lib/data';
+import { FaCode, FaTerminal, FaPencilAlt, FaMobileAlt } from 'react-icons/fa';
+// REMOVED: import { motion } from 'framer-motion'; 
+// NEW: Import the motion wrappers from the client file
+import { MotionDiv } from '../../components/MotionWrappers'; 
+
+const iconMap = {
+  FaCode,
+  FaTerminal,
+  FaPencilAlt,
+  FaMobileAlt,
+};
+
+const Skills = async () => { // Async function = Server Component
+  const skillsData = await getSkillsData();
+  
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
+  return (
+    <div className="max-w-6xl mx-auto">
+      <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-12 text-neon-cyan text-neon-glow-cyan">
+        Verified Skills
+      </h2>
+
+      <MotionDiv
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        className="grid grid-cols-1 md:grid-cols-2 gap-8"
+      >
+        {skillsData.map((category, index) => {
+          const IconComponent = iconMap[category.icon];
+          return (
+            <MotionDiv key={index} variants={itemVariants}>
+              <GlassCard className="p-6">
+                <div className="flex items-center mb-6">
+                  {IconComponent && <IconComponent className="text-3xl mr-3 text-neon-purple" />}
+                  <h3 className="text-2xl font-bold text-white tracking-wide">{category.category}</h3>
+                </div>
+                
+                <div className="space-y-4">
+                  {category.skills.map((skill) => (
+                    <SkillBar 
+                      key={skill.name} 
+                      name={skill.name} 
+                      level={skill.level} 
+                      color={skill.color} 
+                    />
+                  ))}
+                </div>
+              </GlassCard>
+            </MotionDiv>
+          );
+        })}
+      </MotionDiv>
+    </div>
+  );
+};
+
+export default Skills;
+===== AnimatedText.jsx =====
+'use client';
+
+import React from 'react';
+import { motion } from 'framer-motion';
+
+const defaultAnimations = {
+  hidden: {
+    opacity: 0,
+    y: 20,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+  },
+};
+
+/**
+ * Animates text word-by-word.
+ */
+const AnimatedText = ({ text, className = '' }) => {
+  const words = text.split(' ');
+
+  return (
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      transition={{ staggerChildren: 0.05 }}
+      className={`inline-block ${className}`}
+    >
+      {words.map((word, index) => (
+        <motion.span
+          key={index}
+          className="inline-block whitespace-nowrap mr-2"
+          variants={defaultAnimations}
+        >
+          {word}
+        </motion.span>
+      ))}
+    </motion.div>
+  );
+};
+
+export default AnimatedText;
+===== Footer.jsx =====
+// src/app/components/Footer.jsx
+
+import React from 'react';
+import GlassCard from './GlassCard'; // GlassCard MUST be a Client Component ('use client')
+
+const Footer = async () => { // Keep 'async' to treat as Server Component (which can handle async)
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="py-8 mt-16">
+      <div className="max-w-7xl mx-auto px-4 lg:px-8">
+        <GlassCard className="text-center py-6">
+          <p className="text-sm text-gray-400 font-mono">
+            &copy; {currentYear} Manikumar Kundena. Built with Next.js & Neon Glassmorphism.
+            <br />
+            Creator of Random Bharatian Dude.
+          </p>
+        </GlassCard>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
+===== GlassCard.jsx =====
+'use client';
+import React from 'react';
+import { motion } from 'framer-motion';
+
+/**
+ * Base Glassmorphism Card Component
+ * Applies the translucent background, blur, and required glass border.
+ */
+const GlassCard = ({ children, className = '' }) => {
+  return (
+    <motion.div 
+      className={`glassmorphism ${className}`}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+export default GlassCard;
+===== HoverGlowCard.jsx =====
+'use client';
+
+import React from 'react';
+import { motion } from 'framer-motion';
+import GlassCard from './GlassCard';
+import Image from 'next/image';
+import { FaExternalLinkAlt } from 'react-icons/fa';
+
+/**
+ * Project Card with a pronounced neon hover glow effect.
+ */
+const HoverGlowCard = ({ project }) => {
+  return (
+    <motion.a
+      href={project.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 10 }}
+    >
+      <GlassCard 
+        className="p-4 flex flex-col h-full transition duration-300 hover:shadow-neon-cyan hover:border-neon-cyan/50"
+      >
+        <div className="relative h-48 w-full mb-4 overflow-hidden rounded-lg">
+          {/* Placeholder for real image, must be placed in /public/images */}
+          <Image
+            src={project.image} 
+            alt={project.title}
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
+            style={{ objectFit: 'cover' }}
+            className="transition duration-500 group-hover:scale-110"
+          />
+        </div>
+        
+        <h3 className={`text-xl font-bold mb-2 text-neon-purple`}>{project.title}</h3>
+        <p className="text-sm text-gray-300 flex-grow mb-3">{project.description}</p>
+        
+        <div className="flex flex-wrap gap-2 mb-3">
+          {project.stack.map((item, index) => (
+            <span key={index} className="font-mono text-xs px-2 py-0.5 rounded-full bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/30">
+              {item}
+            </span>
+          ))}
+        </div>
+        
+        <div className="flex justify-between items-center pt-2 border-t border-gray-700/50">
+          <span className={`text-sm font-medium ${project.status === 'In Progress' ? 'text-yellow-400' : 'text-green-400'}`}>
+            {project.status}
+          </span>
+          <FaExternalLinkAlt className="text-neon-cyan group-hover:scale-110 transition" />
+        </div>
+      </GlassCard>
+    </motion.a>
+  );
+};
+
+export default HoverGlowCard;
+===== MotionWrappers.jsx =====
+// src/app/components/MotionWrappers.jsx
+'use client';
+
+import { motion } from 'framer-motion';
+
+// Export motion elements wrapped in a client component file
+export const MotionDiv = motion.div;
+export const MotionP = motion.p;
+export const MotionH1 = motion.h1;
+export const MotionA = motion.a;
+export const MotionLi = motion.li;
+export const MotionUl = motion.ul;
+export const MotionSpan = motion.span;
+// Now, any Server Component can import these without error.
+===== Navbar.jsx =====
+'use client';
+
+import React from 'react';
+import { motion } from 'framer-motion';
+import GlassCard from './GlassCard';
+import Link from 'next/link';
+
+const navItems = [
+  { name: 'Home', href: '#hero' },
+  { name: 'About', href: '#about' },
+  { name: 'Skills', href: '#skills' },
+  { name: 'Projects', href: '#projects' },
+  { name: 'Contact', href: '#contact' },
+];
+
+const Navbar = () => {
+  return (
+    <motion.header
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ type: 'spring', stiffness: 120, damping: 20 }}
+      className="fixed top-0 left-0 right-0 z-50 p-4"
+    >
+      <GlassCard className="max-w-6xl mx-auto py-3 px-6 flex justify-between items-center">
+        {/* Neon Name/Logo */}
+        <Link href="#hero" className="text-2xl font-black font-mono tracking-wider text-neon-cyan transition duration-300 hover:text-white text-neon-glow-cyan">
+          M.K.
+        </Link>
+        
+        {/* Navigation Links */}
+        <nav className="hidden md:flex space-x-6">
+          {navItems.map((item) => (
+            <Link 
+              key={item.name} 
+              href={item.href} 
+              className="text-gray-300 hover:text-neon-purple transition duration-300 relative group"
+            >
+              {item.name}
+              {/* Underline hover effect */}
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-neon-purple scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            </Link>
+          ))}
+        </nav>
+        
+        {/* Mobile/Menu (Can be expanded but kept simple for core components) */}
+        <div className="md:hidden">
+          {/* Placeholder for a mobile menu icon */}
+          <span className="text-xl">☰</span>
+        </div>
+      </GlassCard>
+    </motion.header>
+  );
+};
+
+export default Navbar;
+===== SkillBar.jsx =====
+'use client';
+
+import React from 'react';
+import { motion } from 'framer-motion';
+
+/**
+ * Animated progress bar for skills.
+ */
+const SkillBar = ({ name, level, color }) => {
+  const barVariants = {
+    hidden: { width: 0 },
+    visible: { width: `${level}%`, transition: { duration: 1.5, ease: 'easeOut' } },
+  };
+
+  const glowColorClass = `shadow-neon-${color}`; // e.g., shadow-neon-purple
+
+  return (
+    <div className="mb-4">
+      <div className="flex justify-between mb-1">
+        <span className="text-sm font-medium">{name}</span>
+        <span className={`text-sm font-mono text-${color}`}>{level}%</span>
+      </div>
+      <div className="w-full bg-gray-800 rounded-full h-2.5 overflow-hidden">
+        <motion.div
+          variants={barVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className={`h-2.5 rounded-full bg-${color} ${glowColorClass}`}
+        />
+      </div>
+    </div>
+  );
+};
+
+export default SkillBar;

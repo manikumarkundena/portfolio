@@ -1,0 +1,6 @@
+[
+  { "name": "GitHub", "url": "#", "icon": "FaGithub" },
+  { "name": "LinkedIn", "url": "#", "icon": "FaLinkedinIn" },
+  { "name": "X (Twitter)", "url": "#", "icon": "FaTwitter" },
+  { "name": "Email", "url": "mailto:manikumar.dev@example.com", "icon": "FaEnvelope" }
+]
