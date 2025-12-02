@@ -1,7 +1,7 @@
 import React from 'react';
 import GlassCard from '../../components/GlassCard';
 import { getPersonalData, getSocialsData } from '../../lib/data';
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaGithub, FaLinkedinIn, FaTwitter, FaArrowRight } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaGithub, FaLinkedinIn, FaTwitter, FaArrowRight, FaInstagram } from 'react-icons/fa';
 // REMOVED: import { motion } from 'framer-motion'; 
 // NEW: Import the motion wrapper from the client file
 import { MotionDiv } from '../../components/MotionWrappers'; 

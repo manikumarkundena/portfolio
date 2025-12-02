@@ -7,9 +7,9 @@
     { "name": "Learning TailwindCSS", "level": 40, "color": "neon-cyan" }
   ]},
   { "category": "Programming & Data", "icon": "FaTerminal", "skills": [
-    { "name": "C Programming (Arrays, Pointers)", "level": 75, "color": "neon-purple" },
+    { "name": "C++", "level": 70, "color": "neon-purple" },
     { "name": "Python Basics", "level": 45, "color": "neon-purple" },
-    { "name": "Data Analysis (Concepts)", "level": 30, "color": "neon-purple" }
+    { "name": "Data Science (Concepts)", "level": 30, "color": "neon-purple" }
   ]},
   { "category": "Design & Marketing", "icon": "FaPencilAlt", "skills": [
     { "name": "Digital Marketing & SEO Basics", "level": 60, "color": "neon-cyan" },
@@ -18,6 +18,6 @@
   ]},
   { "category": "Mobile & Emerging Tech", "icon": "FaMobileAlt", "skills": [
     { "name": "Learning Android / Kotlin", "level": 35, "color": "neon-purple" },
-    { "name": "AI-Based Freelancing Concepts", "level": 30, "color": "neon-cyan" }
+    { "name": "Generative AI", "level": 30, "color": "neon-cyan" }
   ]}
 ]

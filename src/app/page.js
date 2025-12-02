@@ -8,7 +8,6 @@ import Certifications from './(sections)/certifications/Certifications';
 import Contact from './(sections)/contact/Contact';
 // This component MUST be marked 'use client' and handle the motion import
 import SectionFadeIn from './components/SectionFadeIn'; 
-import AboutAvatarTyping from './components/AboutAvatarTyping';
 
 export default function Home() {
   return (
@@ -24,7 +23,7 @@ export default function Home() {
       <SectionFadeIn id="skills">
         <Skills />
       </SectionFadeIn>
-       <AboutAvatarTyping />
+      
       <SectionFadeIn id="projects">
         <Projects />
       </SectionFadeIn>
