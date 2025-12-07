@@ -20,16 +20,27 @@ const Hero = async () => {
   const data = await getPersonalData();
 
   return (
-    <div className="relative pt-20 pb-32 overflow-hidden">
-      
-      {/* 🔥 Ambient Neon Background Layer */}
-      <div className="hero-ambient"></div>
+    <section
+      id="home"
+      className="relative pt-16 pb-28 md:pt-24 md:pb-40 overflow-hidden"
+    >
+       <div className="hero-nebula">
+    <div className="nebula-cyan"></div>
+    <div className="nebula-purple"></div>
+  </div>
+      {/* Soft hero-only gradient in the background */}
+      <div
+        className="
+          pointer-events-none 
+          absolute -inset-x-40 -top-40 h-[420px]
+          opacity-70
+          bg-[radial-gradient(circle_at_12%_20%,rgba(56,189,248,0.25),transparent_60%),radial-gradient(circle_at_88%_80%,rgba(168,85,247,0.28),transparent_60%)]
+        "
+      />
 
-      <div className="max-w-7xl mx-auto px-4 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-12 relative z-10">
-
+      <div className="relative max-w-7xl mx-auto px-4 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-12">
         {/* LEFT — TEXT SIDE */}
         <div className="lg:w-3/5 z-10 text-center lg:text-left">
-          
           <MotionP
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -39,45 +50,44 @@ const Hero = async () => {
             Hello, I&apos;m
           </MotionP>
 
-          {/* 🔥 Neon Title */}
           <MotionH1
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-5xl md:text-7xl lg:text-8xl neon-title"
+            className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight tracking-tight"
           >
-            <span className="neon neon-cyan block">Manikumar</span>
-            <span className="neon neon-purple block">Kundena</span>
+            <span className="block text-neon-cyan">MANIKUMAR</span>
+            <span className="block text-neon-purple">KUNDENA</span>
           </MotionH1>
 
-          {/* Animated Subtitle */}
-          <div className="text-2xl md:text-4xl neon neon-white font-semibold mt-2">
+          <div className="text-2xl md:text-4xl font-semibold mb-6 text-gray-100">
             <AnimatedText text={data.title} className="inline-block" />
           </div>
 
-          {/* Tagline */}
           <MotionP
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 1.5 }}
+            transition={{ duration: 0.5, delay: 1.2 }}
             className="max-w-xl text-gray-300 mb-10 text-lg mx-auto lg:mx-0"
           >
             {data.tagline}
           </MotionP>
 
-          {/* CTA Buttons */}
           <MotionDiv
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 1.8 }}
+            transition={{ duration: 0.5, delay: 1.5 }}
             className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
           >
-            <a href="#contact" className="neon-btn neon-btn-primary">
+            <a
+              href="#contact"
+              className="neon-btn neon-btn-primary"
+            >
               Get In Touch <FaArrowRight />
             </a>
 
             <a
-              href="/Manikumar-CV.pdf"
+              href="/https://drive.google.com/file/d/1H_2hDH5Qy124Q2ikroX3i1B4tbaJz3bi/view?usp=sharing"
               download
               className="neon-btn neon-btn-outline"
             >
@@ -86,19 +96,18 @@ const Hero = async () => {
           </MotionDiv>
         </div>
 
-        {/* RIGHT — ULTRA FX PHOTO */}
+        {/* RIGHT — PHOTO WITH FX */}
         <MotionDiv
-          initial={{ opacity: 0, scale: 0.85, rotate: -3 }}
+          initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 0.9, delay: 0.9, type: "spring" }}
-          className="lg:w-2/5 flex justify-center"
+          className="lg:w-2/5 flex justify-center z-10"
         >
           <div className="hero-photo-wrapper group">
-
-            {/* Neon halo */}
+            {/* Subtle gradient behind photo */}
             <div className="hero-halo" />
 
-            {/* Animated cyber grid */}
+            {/* Animated grid overlay */}
             <div className="hero-grid" />
 
             {/* Floating particles */}
@@ -107,16 +116,20 @@ const Hero = async () => {
                 <span
                   key={i}
                   className="hero-particle"
-                  style={{ top: p.top, left: p.left, animationDelay: `${i * 0.4}s` }}
+                  style={{
+                    top: p.top,
+                    left: p.left,
+                    animationDelay: `${i * 0.4}s`,
+                  }}
                 />
               ))}
             </div>
 
-            {/* Energy orbs */}
+            {/* Glowing orbs */}
             <span className="hero-orb hero-orb-1" />
             <span className="hero-orb hero-orb-2" />
 
-            {/* Floating image */}
+            {/* Floating photo itself */}
             <MotionDiv
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -130,21 +143,15 @@ const Hero = async () => {
                 className="object-cover rounded-2xl"
               />
 
-              {/* Hologram scanlines */}
+              {/* Scanlines + tiny glitch, but NO blur filter on whole card */}
               <div className="hero-scanlines" />
-
-              {/* Glitch pulse */}
               <div className="hero-glitch" />
-
-              {/* Shine sweep */}
               <div className="hero-shine" />
             </MotionDiv>
-
           </div>
         </MotionDiv>
-
       </div>
-    </div>
+    </section>
   );
 };
 

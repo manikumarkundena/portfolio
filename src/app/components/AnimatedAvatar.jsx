@@ -103,7 +103,7 @@ export default function AnimatedAvatar() {
           transition={{ duration: 0.1 }}
           style={{
             background:
-              "url(/images/avatar-blink.svg) no-repeat center/contain",
+              "url(/images/avatar.svg) no-repeat center/contain",
           }}
         />
       )}

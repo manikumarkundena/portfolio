@@ -1,29 +1,56 @@
 [
   {
     "id": 1,
-    "title": "Modern E-commerce Frontend",
-    "stack": ["HTML5", "CSS3", "Bootstrap 5"],
-    "description": "A fully responsive, multi-page e-commerce website interface built purely with standard markup and styling. Focus on modern UI/UX and cross-browser compatibility.",
-    "image": "/images/project-ecommerce.jpg",
-    "link": "#",
+    "title": "UI/UX Case Study – App & Web Redesign",
+    "stack": ["Figma", "Wireframing", "Prototyping"],
+    "description": "A complete UX case study created during my internship, including user research, wireframes, design systems and high-fidelity screens.",
+    "icon": "FaPalette",
+    "link": "https://drive.google.com/drive/folders/1es9YcI_HAVj-92ZyqIiSKlfwKHe1b9zp?usp=sharing",
     "status": "Completed"
   },
   {
     "id": 2,
-    "title": "Targeted Digital Marketing Campaign",
-    "stack": ["SEO", "SMM (Meta/X)", "Content Strategy"],
-    "description": "A comprehensive plan outlining an SEO and Social Media Marketing strategy. Includes keyword research, competitor analysis, and content calendar development.",
-    "image": "/images/project-dm-campaign.jpg",
-    "link": "#",
+    "title": "Club Event Registration Portal",
+    "stack": ["HTML", "CSS", "JavaScript", "Firebase"],
+    "description": "A custom event registration website built for my college club ScriptInk. Includes validation, admin access and live participant tracking.",
+    "icon": "FaWpforms",
+    "link": "https://drive.google.com/drive/folders/1fj7dik8OcncbAXE7yvIyK0m_316qbTZ8?usp=sharing",
     "status": "Completed"
   },
   {
     "id": 3,
-    "title": "React + Tailwind Portfolio (WIP)",
-    "stack": ["Next.js", "React", "TailwindCSS", "Framer Motion"],
-    "description": "The very portfolio you are viewing (or a similar project), leveraging modern tools to create a highly animated and performant single-page application.",
-    "image": "/images/project-dm-campaign.jpg",
-    "link": "#",
-    "status": "In Progress"
+    "title": "E-Commerce Web Application",
+    "stack": ["Next.js", "React", "TailwindCSS", "Node.js"],
+    "description": "A modern e-commerce web app with product listings, shopping cart, authentication, and responsive UI.",
+    "icon": "FaShoppingCart",
+    "link": "https://drive.google.com/drive/folders/1pTbS_Y2jSeTA6AupECnzWP7-owgk-I8_?usp=sharing",
+    "status": "Completed"
+  },
+  {
+    "id": 4,
+    "title": "Resume Relevance Checker – AI Hackathon Project",
+    "stack": ["Python", "NLP", "Embeddings", "Streamlit"],
+    "description": "An AI tool that compares a resume with job descriptions and gives a match score using NLP embeddings.",
+    "icon": "FaRobot",
+    "link": "https://drive.google.com/drive/folders/1mhknTEo5x4wsMBqQkqLwMNBualQI48kU?usp=sharing",
+    "status": "Completed"
+  },
+  {
+    "id": 5,
+    "title": "Digital Marketing Strategy Project",
+    "stack": ["SEO", "Google Analytics", "Content Strategy"],
+    "description": "A complete SEO and SMM strategy including keyword research, competitor analysis, and ad campaign structure.",
+    "icon": "FaChartLine",
+    "link": "https://drive.google.com/drive/folders/1zgEHVHGwkWSHcpTM8a_TyX0TUtJ44ITn?usp=sharing",
+    "status": "Completed"
+  },
+  {
+    "id": 6,
+    "title": "Neon Developer Portfolio (This Website)",
+    "stack": ["Next.js", "TailwindCSS", "Framer Motion"],
+    "description": "A fully animated neon-themed portfolio with futuristic UI effects, motion animations, and responsive design.",
+    "icon": "FaGlobe",
+    "link": "https://drive.google.com/drive/folders/1nuhasqzT0o-2vs8D7kC1hD6Eqvz5zUkt?usp=sharing",
+    "status": "Completed"
   }
 ]

@@ -1,15 +1,21 @@
-import React from 'react';
-import GlassCard from '../../components/GlassCard';
-import { getPersonalData, getSocialsData } from '../../lib/data';
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaGithub, FaLinkedinIn, FaTwitter, FaArrowRight, FaInstagram } from 'react-icons/fa';
-// REMOVED: import { motion } from 'framer-motion'; 
-// NEW: Import the motion wrapper from the client file
-import { MotionDiv } from '../../components/MotionWrappers'; 
+import React from "react";
+import GlassCard from "../../components/GlassCard";
+import { getPersonalData, getSocialsData } from "../../lib/data";
+import {
+  FaMapMarkerAlt,
+  FaPhone,
+  FaEnvelope,
+  FaGithub,
+  FaLinkedinIn,
+  FaInstagram,
+  FaArrowRight,
+} from "react-icons/fa";
+import { MotionDiv } from "../../components/MotionWrappers";
 
 const iconMap = {
   FaGithub,
   FaLinkedinIn,
-  FaTwitter,
+  FaInstagram,
   FaEnvelope,
 };
 
@@ -34,9 +40,8 @@ const Contact = async () => {
       </h2>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        
-        {/* Contact Info (Column 1/3) */}
-        <MotionDiv // <-- SUBSTITUTED <motion.div>
+        {/* CONTACT INFO --------------------------- */}
+        <MotionDiv
           variants={infoVariants}
           initial="hidden"
           whileInView="visible"
@@ -44,40 +49,51 @@ const Contact = async () => {
           className="lg:col-span-1 space-y-6"
         >
           <GlassCard className="p-6">
-            <h3 className="text-2xl font-bold mb-4 text-neon-cyan">Contact Info</h3>
-            
+            <h3 className="text-2xl font-bold mb-4 text-neon-cyan">
+              Contact Info
+            </h3>
+
             <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <FaEnvelope className="text-neon-purple text-xl flex-shrink-0" />
+                <FaEnvelope className="text-neon-purple text-xl" />
                 <div>
                   <p className="text-sm text-gray-400">Email Address</p>
-                  <a href={`mailto:${personal.email}`} className="text-white hover:text-neon-cyan transition">{personal.email}</a>
+                  <a
+                    href={`mailto:${personal.email}`}
+                    className="text-white hover:text-neon-cyan transition"
+                  >
+                    {personal.email}
+                  </a>
                 </div>
               </div>
+
               <div className="flex items-center gap-3">
-                <FaPhone className="text-neon-purple text-xl flex-shrink-0" />
+                <FaPhone className="text-neon-purple text-xl" />
                 <div>
                   <p className="text-sm text-gray-400">Phone</p>
                   <p className="text-white">{personal.phone}</p>
                 </div>
               </div>
+
               <div className="flex items-center gap-3">
-                <FaMapMarkerAlt className="text-neon-purple text-xl flex-shrink-0" />
+                <FaMapMarkerAlt className="text-neon-purple text-xl" />
                 <div>
                   <p className="text-sm text-gray-400">Location</p>
                   <p className="text-white">{personal.address}</p>
                 </div>
               </div>
             </div>
-            
-            {/* Socials */}
+
+            {/* SOCIAL ICONS */}
             <div className="mt-8 pt-4 border-t border-gray-700/50">
-              <h4 className="text-lg font-semibold mb-3 text-neon-cyan">Connect</h4>
+              <h4 className="text-lg font-semibold mb-3 text-neon-cyan">
+                Connect
+              </h4>
               <div className="flex space-x-4">
                 {socials.map((social) => {
                   const Icon = iconMap[social.icon];
                   return (
-                    <a 
+                    <a
                       key={social.name}
                       href={social.url}
                       target="_blank"
@@ -93,8 +109,8 @@ const Contact = async () => {
           </GlassCard>
         </MotionDiv>
 
-        {/* Mailto Form (Column 2/3) */}
-        <MotionDiv // <-- SUBSTITUTED <motion.div>
+        {/* CONTACT FORM (WEB3FORMS) ------------------- */}
+        <MotionDiv
           variants={formVariants}
           initial="hidden"
           whileInView="visible"
@@ -102,47 +118,40 @@ const Contact = async () => {
           className="lg:col-span-2"
         >
           <GlassCard className="p-8">
-            <h3 className="text-2xl font-bold mb-6 text-neon-purple">Send a Quick Message</h3>
-            
-            <form action={`mailto:${personal.email}`} method="post" encType="text/plain" className="space-y-4">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-1 text-gray-300">Your Name</label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  name="Name"
-                  required
-                  className="w-full px-4 py-2 bg-gray-900/50 border border-gray-700 rounded-lg focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan transition duration-300"
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-1 text-gray-300">Your Email</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  name="Email"
-                  required
-                  className="w-full px-4 py-2 bg-gray-900/50 border border-gray-700 rounded-lg focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan transition duration-300"
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-1 text-gray-300">Message</label>
-                <textarea 
-                  id="message" 
-                  name="Body"
-                  rows="5" 
-                  required
-                  className="w-full px-4 py-2 bg-gray-900/50 border border-gray-700 rounded-lg focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan transition duration-300"
-                ></textarea>
-              </div>
-              
-              <button
-                type="submit"
-                className="w-full px-6 py-3 bg-neon-cyan hover:bg-opacity-80 text-background-dark font-bold rounded-xl transition duration-300 shadow-neon-cyan flex items-center justify-center gap-2"
-              >
-                Send Mail <FaArrowRight />
-              </button>
-            </form>
+            <h3 className="text-2xl font-bold mb-6 text-neon-purple">
+              Send a Message
+            </h3>
+                <form action="https://api.web3forms.com/submit" method="POST" className="space-y-4">
+
+  <input type="hidden" name="apikey" value="1c562c0a-bbaa-420b-a32f-88cb5741d2cb" />
+  <input type="hidden" name="redirect" value="http://localhost:3000/thank-you" />
+
+  <div>
+    <label className="block text-sm font-medium mb-1 text-gray-300">Your Name</label>
+    <input type="text" name="name" required 
+      className="w-full px-4 py-2 bg-gray-900/50 border border-gray-700 rounded-lg" />
+  </div>
+
+  <div>
+    <label className="block text-sm font-medium mb-1 text-gray-300">Your Email</label>
+    <input type="email" name="email" required 
+      className="w-full px-4 py-2 bg-gray-900/50 border border-gray-700 rounded-lg" />
+  </div>
+
+  <div>
+    <label className="block text-sm font-medium mb-1 text-gray-300">Message</label>
+    <textarea name="message" rows="5" required
+      className="w-full px-4 py-2 bg-gray-900/50 border border-gray-700 rounded-lg"></textarea>
+  </div>
+
+  <button type="submit"
+    className="w-full px-6 py-3 bg-neon-cyan text-background-dark rounded-xl">
+    Send Message
+  </button>
+
+</form>
+
+           
           </GlassCard>
         </MotionDiv>
       </div>

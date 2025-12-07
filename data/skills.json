@@ -9,6 +9,7 @@
   { "category": "Programming & Data", "icon": "FaTerminal", "skills": [
     { "name": "C++", "level": 70, "color": "neon-purple" },
     { "name": "Python Basics", "level": 45, "color": "neon-purple" },
+    { "name": "Programming in Java", "level": 40, "color": "neon-purple" },
     { "name": "Data Science (Concepts)", "level": 30, "color": "neon-purple" }
   ]},
   { "category": "Design & Marketing", "icon": "FaPencilAlt", "skills": [

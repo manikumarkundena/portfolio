@@ -1,6 +1,6 @@
 [
   { "name": "GitHub", "url": "https://github.com/manikumarkundena", "icon": "FaGithub" },
-  { "name": "LinkedIn", "url": "www.linkedin.com/in/manikumarkundena", "icon": "FaLinkedinIn" },
-  { "name": "X (Twitter)", "url": "#", "icon": "FaTwitter" },
+  { "name": "LinkedIn", "url": "https://www.linkedin.com/in/manikumarkundena", "icon": "FaLinkedinIn" },
+  { "name": "Instagram", "url": "https://www.instagram.com/manikumar_kundena?igsh=d2dxcWVudWlsbmw5", "icon": "FaInstagram" },
   { "name": "Email", "url": "mailto:manikumarkundena@gmail.com", "icon": "FaEnvelope" }
 ]

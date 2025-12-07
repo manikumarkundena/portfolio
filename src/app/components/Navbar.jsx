@@ -24,7 +24,7 @@ const Navbar = () => {
       <GlassCard className="max-w-6xl mx-auto py-3 px-6 flex justify-between items-center">
         {/* Neon Name/Logo */}
         <Link href="#hero" className="text-2xl font-black font-mono tracking-wider text-neon-cyan transition duration-300 hover:text-white text-neon-glow-cyan">
-          M.K.
+          <span className="neon-brand">Manikumar</span>
         </Link>
         
         {/* Navigation Links */}

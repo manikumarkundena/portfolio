@@ -11,9 +11,9 @@ const Footer = async () => { // Keep 'async' to treat as Server Component (which
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         <GlassCard className="text-center py-6">
           <p className="text-sm text-gray-400 font-mono">
-            &copy; {currentYear} Manikumar Kundena. Built with Next.js & Neon Glassmorphism.
-            <br />
-            Creator of Random Bharatian Dude.
+            &copy; {currentYear} Manikumar Kundena | Crafted with intent, built with clarity.
+            
+           
           </p>
         </GlassCard>
       </div>
