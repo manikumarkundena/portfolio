@@ -87,12 +87,14 @@ const Hero = async () => {
             </a>
 
             <a
-              href="/https://drive.google.com/file/d/1H_2hDH5Qy124Q2ikroX3i1B4tbaJz3bi/view?usp=sharing"
-              download
-              className="neon-btn neon-btn-outline"
-            >
-              Download CV <FaDownload />
-            </a>
+  href="https://drive.google.com/uc?export=download&id=1H_2hDH5Qy124Q2ikroX3i1B4tbaJz3bi"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="neon-btn neon-btn-outline"
+>
+  Download CV <FaDownload />
+</a>
+
           </MotionDiv>
         </div>
 
