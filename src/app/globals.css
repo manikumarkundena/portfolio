@@ -1,6 +1,11 @@
 /* --------------------------------------------
    1. TAILWIND DIRECTIVES
 --------------------------------------------- */
+/* Must be the first line */
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Inter:wght@400;600;700;900&display=swap");
+
+/* your existing css starts here */
+
 
 @tailwind base;
 @tailwind components;
@@ -10,7 +15,6 @@
    2. GOOGLE FONTS IMPORTS
 --------------------------------------------- */
 
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Inter:wght@400;600;700;900&display=swap");
 
 /* --------------------------------------------
    3. BASE GLOBAL STYLES (Soft AI Gradient)
