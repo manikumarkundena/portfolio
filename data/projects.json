@@ -52,5 +52,15 @@
     "icon": "FaGlobe",
     "link": "https://drive.google.com/drive/folders/1nuhasqzT0o-2vs8D7kC1hD6Eqvz5zUkt?usp=sharing",
     "status": "Completed"
-  }
+  },
+  {
+  "id": 7,
+  "title": "BoostMe – AI Productivity & Mental Wellness Platform",
+  "stack": ["HTML", "CSS", "JavaScript", "Supabase", "AI APIs", "Vercel", "Render"],
+  "description": "An AI-powered student productivity and mental wellness web app that helps users focus better, reduce stress, and stay motivated through chat support, focus tools, and AI-powered utilities.",
+  "icon": "FaRocket",
+  "link": "https://manikumars-boostme.vercel.app/",
+  "status": "Completed"
+}
+
 ]
