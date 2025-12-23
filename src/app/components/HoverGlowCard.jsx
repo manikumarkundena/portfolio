@@ -11,7 +11,8 @@ import {
   FaShoppingCart,
   FaRobot,
   FaChartLine,
-  FaGlobe
+  FaGlobe,
+  FaRocket
 } from "react-icons/fa";
 
 const iconMap = {
