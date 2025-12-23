@@ -20,7 +20,8 @@ const iconMap = {
   FaShoppingCart,
   FaRobot,
   FaChartLine,
-  FaGlobe
+  FaGlobe,
+  FaRocket
 };
 
 const HoverGlowCard = ({ project }) => {
